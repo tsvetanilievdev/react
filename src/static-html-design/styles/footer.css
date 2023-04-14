@@ -1,0 +1,38 @@
+.footer {
+    background-color: #d8a1a1;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer__div {
+    width: 30%;
+    text-align: center;
+}
+
+.footer__desc {
+    text-align: left;
+}
+
+.footer__desc .footer__desc__title,
+.footer__patients .footer__petients__title,
+.footer__contact .footer__contact__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer__desc .footer__desc__desc {
+    margin-bottom: 1rem;
+}
+
+.footer__desc .footer__desc__icons {
+    text-align: center;
+
+}
+
+.footer__desc .footer__desc__icons span {
+    display: inline-block;
+    margin: 0 1rem;
+}

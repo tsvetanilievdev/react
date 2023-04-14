@@ -1,0 +1,57 @@
+/* Header */
+nav {
+    position: relative;
+}
+#header_top {
+    /* width: 200px; */
+    /* height: 300px; */
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header_top h1 {
+    text-align: center;
+    padding-left: 10px;
+}
+
+#header_top button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu_mobile {
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: rgba(127, 255, 212, 0.671);
+    text-align: center;
+    z-index: 1;
+    width: 100%;
+}
+
+.menu_mobile.show {
+    max-height: 200px;
+}
+
+li:hover {
+    scale: 1.2;
+}
+
+.menu_big {
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aquamarine;
+    margin-right: 50px;
+    padding: 13px 0;
+    display: none;
+}
