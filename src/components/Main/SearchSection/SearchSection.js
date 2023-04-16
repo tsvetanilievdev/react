@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import './SearchSection.css'
 const SearchSection = () => {
 
     return (
 
         <section className="section__search">
-            <form className="search__form">
+            <form className="search__form" onSubmit={(e) => {
+                e.preventDefault();
+            }}>
                 <h3 className="search__form__title">Search Doctor, Make an Appointment</h3>
                 <h4 className="search__form__subtitle">Discover the best doctors, clinic & hospital the city nearest to you.
                 </h4>
@@ -23,7 +26,7 @@ const SearchSection = () => {
                     </label>
 
                 </div>
-                <button className="search__form__btn">Search</button>
+                <button className="search__form__btn"><Link to="/search">Search</Link></button>
             </form>
         </section>
     )

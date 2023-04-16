@@ -1,29 +1,30 @@
+import { Link } from 'react-router-dom';
 import './Header.css'
 
 const Header = () => {
-    const isAdmin = true;
-    const isLogged = true;
+    const isAdmin = false;
+    const isLogged = false;
     return (
         <header className="header">
             <nav className="nav">
-                <a className="nav__logo" href="/logo">LOGO</a>
+                <Link className="nav__logo" to="/logo">LOGO</Link>
                 <ul className="nav__menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/">Doctors</a></li>
-                    <li><a href="/">Contact Us</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/doctors">Doctors</Link></li>
+                    <li><Link to="/contacts">Contact Us</Link></li>
 
                     {isLogged ? (
                         <>
-                            <li><a href="/">My profile</a></li>
-                            <li><a href="/">Logout</a></li>
+                            <li><Link to="/my-profile">My profile</Link></li>
+                            <li><Link to="/logout">Logout</Link></li>
                             {isAdmin ? (
-                                <li><a href="/">Admin</a></li>
+                                <li><Link to="/admin">Admin</Link></li>
                             ) : null}
                         </>
                     ) : (
                         <>
-                            <li><a href="/">Register</a></li>
-                            <li><a href="/">Login</a></li>
+                            <li><Link to="/register">Register</Link></li>
+                            <li><Link to="/login">Login</Link></li>
                         </>
                     )}
                 </ul>

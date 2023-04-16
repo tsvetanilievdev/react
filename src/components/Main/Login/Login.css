@@ -8,6 +8,10 @@ form.form {
     padding: 12px 0;
 }
 
+form.form.login__form {
+    padding: 6rem 0 ;
+}
+
 .form__div {
     width: 500px;
     display: flex;
