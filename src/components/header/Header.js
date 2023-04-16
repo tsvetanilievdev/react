@@ -1,44 +1,37 @@
-import { useState } from "react";
+import './Header.css'
+// import { useState } from "react";
 
 const Header = () => {
-    const [isMobile, setIsMobile] = useState(false);
-
-
+    const isAdmin = true;
+    const isLogged = true;
     return (
+        <header className="header">
+            <nav className="nav">
+                <a className="nav__logo" href="/logo">LOGO</a>
+                <ul className="nav__menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Doctors</a></li>
+                    <li><a href="/">Contact Us</a></li>
 
-        <header id="header">
-            <nav>
-                <div id="header_top">
-                    <h1>Медицински Център "Super Doc"</h1>
-                    {isMobile ? (
-                        <div id="header_menu">
-                            <ul class="menu_mobile">
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/">Procedures</a></li>
-                                <li><a href="/">About us</a></li>
-                                <li><a href="/">Login</a></li>
-                                <li><a href="/">Register</a></li>
-                                <li><a href="/">Logout</a></li>
-                            </ul>
-                        </div>
+                    {isLogged ? (
+                        <>
+                            <li><a href="/">My profile</a></li>
+                            <li><a href="/">Logout</a></li>
+                            {isAdmin ? (
+                                <li><a href="/">Admin</a></li>
+                            ) : null}
+                        </>
                     ) : (
                         <>
-                            <ul class="menu_big">
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/">Procedures</a></li>
-                                <li><a href="/">About us</a></li>
-                                <li><a href="/">Login</a></li>
-                                <li><a href="/">Register</a></li>
-                                <li><a href="/">Logout</a></li>
-                            </ul>
-                            <button id="toggle_menu">&#9776;</button>
+                            <li><a href="/">Register</a></li>
+                            <li><a href="/">Login</a></li>
                         </>
                     )}
-                </div>
+                </ul>
 
+                <span className="nav__contact">Contact us: 0888 321 321 </span>
             </nav>
         </header>
-
     )
 }
 
