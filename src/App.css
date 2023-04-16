@@ -10,8 +10,3 @@
 
     --shadow-base: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-
-main {
-    background-color: rgb(231, 231, 116);
-    min-height: calc(100vh - 72px - 176px);
-}

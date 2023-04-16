@@ -1,5 +1,4 @@
 import './Header.css'
-// import { useState } from "react";
 
 const Header = () => {
     const isAdmin = true;
@@ -35,4 +34,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Header; 
