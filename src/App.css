@@ -3,10 +3,21 @@
     --color-secondary: #f5f5f5;
     --color-additional: #353131;
 
+    --form--color-primary: #10b0cc;
+
+    --form--bg--color-primary: #fafa9c;
+    
+    --form--bg--color--div-primary: #fafa9c;
+    --form--bg--color--div-secondary: #b8b849;
+
+    
+
     --btn--color: #ffffff;
     --btn--color-hover: blue;
     --btn--bg-color: rgb(59, 89, 129);
     --btn--bg-color-hover: #21af9c;
+
+
 
     --shadow-base: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
 }

@@ -44,7 +44,7 @@
     line-height: 1.2;
     min-height: 80px;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .doctor__preview  .doctor__preview__spec {
