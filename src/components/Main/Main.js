@@ -6,6 +6,7 @@ import Register from './Register/Register.js';
 import SearchResultsSection from './SearchResultsSection/SearchResultsSection.js';
 import SearchSection from './SearchSection/SearchSection.js';
 import Details from './Details/Details.js';
+import Booking from './Booking/Booking.js';
 
 const Main = () => {
 
@@ -19,6 +20,7 @@ const Main = () => {
                 <Route path="/details/:id" element={<Details />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/booking" element={<Booking />} />
             </Routes>
         </main>
     );
