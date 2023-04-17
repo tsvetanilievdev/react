@@ -65,6 +65,14 @@ box-shadow: 1px -2px 9px 3px rgba(179,171,171,0.76);
     /* font-weight: 300; */
     text-transform: uppercase;
 }
+/* CARD-GUEST */
+.card.card-guest {
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
 
 /* CARD-BOOK */
 .card-book .info .info__price,
