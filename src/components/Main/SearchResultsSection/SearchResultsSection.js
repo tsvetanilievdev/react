@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './SearchResultsSection.css'
 import photo from './doctor-female.png'
 const SearchResultsSection = () => {
@@ -35,7 +36,7 @@ const SearchResultsSection = () => {
                         <div class="card card-guest">
                             <div class="info guest">
                                 <h5 class="info__price">For more info please login</h5>
-                                <a class="card__btn" href="/login">Login</a>
+                                <Link class="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -71,7 +72,7 @@ const SearchResultsSection = () => {
                         <div class="card card-guest">
                             <div class="info guest">
                                 <h5 class="info__price">For more info please login</h5>
-                                <a class="card__btn" href="/login">Login</a>
+                                <Link class="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -107,7 +108,7 @@ const SearchResultsSection = () => {
                         <div class="card card-guest">
                             <div class="info guest">
                                 <h5 class="info__price">For more info please login</h5>
-                                <a class="card__btn" href="/login">Login</a>
+                                <Link class="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -143,7 +144,7 @@ const SearchResultsSection = () => {
                         <div class="card card-guest">
                             <div class="info guest">
                                 <h5 class="info__price">For more info please login</h5>
-                                <a class="card__btn" href="/login">Login</a>
+                                <Link class="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -179,7 +180,7 @@ const SearchResultsSection = () => {
                         <div class="card card-guest">
                             <div class="info guest">
                                 <h5 class="info__price">For more info please login</h5>
-                                <a class="card__btn" href="/login">Login</a>
+                                <Link class="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -215,7 +216,7 @@ const SearchResultsSection = () => {
                         <div class="card card-guest">
                             <div class="info guest">
                                 <h5 class="info__price">For more info please login</h5>
-                                <a class="card__btn" href="/login">Login</a>
+                                <Link class="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './DoctorsPreviewSection.css';
 import photo from './doctor.png'
 const DoctorsPreviewSection = () => {
@@ -13,7 +14,7 @@ const DoctorsPreviewSection = () => {
                 <p className="doctor__preview__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
                 <footer className="doctor__preview__spec">Педиатър</footer>
-                <button className="doctor__preview__btn">Запази час!</button>
+                <Link to={`/details/312312`} className="doctor__preview__btn">Запази час!</Link>
             </article>
 
             <article className="doctor__preview">
@@ -22,7 +23,7 @@ const DoctorsPreviewSection = () => {
                 <p className="doctor__preview__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
                 <footer className="doctor__preview__spec">Гинеколог</footer>
-                <button className="doctor__preview__btn">Запази час!</button>
+                <Link to={`/details/312312`} className="doctor__preview__btn">Запази час!</Link>
             </article>
 
             <article className="doctor__preview">
@@ -32,7 +33,7 @@ const DoctorsPreviewSection = () => {
                     dolor sit amet consectetur adipisicing elit. Nostrum laborum enim accusamus.
                 </p>
                 <footer className="doctor__preview__spec">Ортопед</footer>
-                <button className="doctor__preview__btn">Запази час!</button>
+                <Link to={`/details/312312`} className="doctor__preview__btn">Запази час!</Link>
             </article>
         </section>
     )

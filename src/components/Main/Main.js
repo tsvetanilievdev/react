@@ -5,9 +5,9 @@ import './Main.css';
 import Register from './Register/Register.js';
 import SearchResultsSection from './SearchResultsSection/SearchResultsSection.js';
 import SearchSection from './SearchSection/SearchSection.js';
+import Details from './Details/Details.js';
 
 const Main = () => {
-
 
     return (
         <main>
@@ -15,6 +15,8 @@ const Main = () => {
             <Routes>
                 <Route path="/" element={<DoctorsPreviewSection />} />
                 <Route path="/search" element={<SearchResultsSection />} />
+                <Route path="/doctors" element={<DoctorsPreviewSection />} />
+                <Route path="/details/:id" element={<Details />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
             </Routes>

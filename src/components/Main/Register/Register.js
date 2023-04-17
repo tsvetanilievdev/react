@@ -20,6 +20,7 @@ const Register = () => {
         workplace: '',
         workdays: '',
         workhours: '',
+        introDescription: '',
         description: '',
     });
 
@@ -151,6 +152,12 @@ const Register = () => {
                         <label className="form__label" htmlFor="price">Price</label>
                         <input className="form__input" type="number" name="price" id="price" onBlur={onChangeDataHandler} />
                     </div>
+
+                    <div className="form__div textarea">
+                        <label className="form__label" htmlFor="introDescription">Intro Description - max 20 words</label>
+                        <textarea className="form__input" name="introDescription" id="introDescription"></textarea>
+                    </div>
+
                     <div className="form__div textarea">
                         <label className="form__label" htmlFor="description">Description</label>
                         <textarea className="form__input" name="description" id="description"></textarea>
