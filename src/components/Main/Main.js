@@ -13,6 +13,7 @@ import MyProfileUser from './MyProfileUser/MyProfileUser.js';
 import DoctorEdit from './Edit/DoctorEdit.js';
 import UserEdit from './Edit/UserEdit.js';
 import EventEdit from './Edit/EventEdit.js';
+import Logout from './Logout/Logout.js';
 
 const Main = () => {
     const isDoctor = false;
@@ -30,6 +31,7 @@ const Main = () => {
                 <Route path="/profile-user/edit/:id" element={<UserEdit />} />
                 <Route path="/details/:id" element={<Details />} /> {/* TO DO.. change path to /doctors/:id */}
                 <Route path="/login" element={<Login />} />
+                <Route path="/logout" element={<Logout />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/booking/:id" element={<Booking />} />
                 <Route path="/booking/:id/edit" element={<EventEdit />} />

@@ -14,3 +14,6 @@ function App() {
 }
 
 export default App;
+
+//q: Could you data models for this app?
+//a: Yes, I can. I will send you a link to the file with the data models.

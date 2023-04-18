@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import './Register.css'
+import * as userService from '../../../services/userService.js';
+import * as doctorService from '../../../services/doctorService.js';
+import { useNavigate } from 'react-router-dom';
+
+
 const Register = () => {
+    const navigate = useNavigate();
     const [isDoctorSelected, setIsDoctorSelected] = useState(false);
     const [data, setData] = useState({
-        role: 'user',
+        role: '',
         email: '',
         password: '',
         password2: '',
@@ -25,16 +31,22 @@ const Register = () => {
     });
 
     const onChangeDataHandler = (e) => {
-        console.log(e.target.name);
+        if (e.target.name === 'role') {
+            if (e.target.value === 'doctor') {
+                console.log('Doctor selected')
+                setIsDoctorSelected(true);
+            } else {
+                setIsDoctorSelected(false);
+            }
+        }
         setData(state => ({ ...state, [e.target.name]: e.target.value }));
     }
 
-    const onSubmitForm = (e) => {
+    const onSubmitForm = async (e) => {
         e.preventDefault();
-
+        console.log('ROLEEEEEEEEEEEEEEEEEEEEE', data.role);
         if (data.role === 'user') {
             const userData = {
-                role: data.role,
                 email: data.email,
                 password: data.password,
                 firstName: data.firstName,
@@ -45,10 +57,47 @@ const Register = () => {
                 city: data.city,
                 imgUrl: data.imgUrl,
             }
-            console.log('user', userData);
-            //to fetch data;
-        } else {
-            console.log('doctor', data)
+            try {
+                const user = await userService.register(userData);
+
+                if (user) {
+                    navigate('/doctors');
+                }
+            } catch (error) {
+                console.log('Error in register - user', error);
+            }
+
+        } else if (data.role === 'doctor') {
+            const doctorData = {
+                email: data.email,
+                password: data.password,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                age: data.age,
+                gender: data.gender,
+                phone: data.phone,
+                city: data.city,
+                imgUrl: data.imgUrl,
+                specialty: data.specialty,
+                experience: data.experience,
+                education: data.education,
+                workplace: data.workplace,
+                workdays: data.workdays,
+                workhours: data.workhours,
+                introDescription: data.introDescription,
+                description: data.description,
+            }
+
+            console.log('DOCTOR DATA', doctorData, 'END DOCTOR DATA');
+            try {
+                const doctor = await doctorService.register(doctorData);
+
+                if (doctor) {
+                    navigate('/doctors');
+                }
+            } catch (error) {
+                console.log('Error in register - doctor', error);
+            }
         }
     }
 
@@ -73,94 +122,94 @@ const Register = () => {
 
             <div className="form__div" >
                 <label className="form__label" htmlFor="email">Email</label>
-                <input className="form__input" type="email" name="email" id="email" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="email" name="email" id="email" onChange={onChangeDataHandler} />
             </div>
 
             <div className="form__div">
                 <label className="form__label" htmlFor="password">Password</label>
-                <input className="form__input" type="password" name="password" id="password" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="password" name="password" id="password" onChange={onChangeDataHandler} />
             </div>
 
             <div className="form__div">
                 <label className="form__label" htmlFor="password2">Confirm Password</label>
-                <input className="form__input" type="password" name="password2" id="password2" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="password" name="password2" id="password2" onChange={onChangeDataHandler} />
             </div>
 
             <div className="form__div">
                 <label className="form__label" htmlFor="firstName">First name</label>
-                <input className="form__input" type="text" name="firstName" id="firstName" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="text" name="firstName" id="firstName" onChange={onChangeDataHandler} />
             </div>
 
             <div className="form__div">
                 <label className="form__label" htmlFor="lastName">Last name</label>
-                <input className="form__input" type="text" name="lastName" id="lastName" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="text" name="lastName" id="lastName" onChange={onChangeDataHandler} />
             </div>
 
             <div className="form__div">
                 <label className="form__label" htmlFor="age">Age</label>
-                <input className="form__input" type="number" name="age" id="age" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="number" name="age" id="age" onChange={onChangeDataHandler} />
             </div>
 
             <div className="form__div radio">
                 <label className="form__label-block" htmlFor="gender">Gender</label>
-                <label className="form__label" htmlFor="gender">Male: <input type="radio" name="gender" value="m" onBlur={onChangeDataHandler} /></label >
-                <label className="form__label" htmlFor="gender">Female: <input type="radio" name="gender" value="f" onBlur={onChangeDataHandler} /></label  >
+                <label className="form__label" htmlFor="gender">Male: <input type="radio" name="gender" value="m" onChange={onChangeDataHandler} /></label >
+                <label className="form__label" htmlFor="gender">Female: <input type="radio" name="gender" value="f" onChange={onChangeDataHandler} /></label  >
             </div>
 
             <div className="form__div">
                 <label className="form__label" htmlFor="phone">Phone</label>
-                <input className="form__input" type="text" name="phone" id="phone" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="text" name="phone" id="phone" onChange={onChangeDataHandler} />
             </div>
 
             <div className="form__div">
                 <label className="form__label" htmlFor="city">City</label>
-                <input className="form__input" type="text" name="city" id="city" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="text" name="city" id="city" onChange={onChangeDataHandler} />
             </div>
 
             <div className="form__div">
                 <label className="form__label" htmlFor="imgUrl">Image Url</label>
-                <input className="form__input" type="text" name="imgUrl" id="imgUrl" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="text" name="imgUrl" id="imgUrl" onChange={onChangeDataHandler} />
             </div>
 
             {isDoctorSelected ? (
                 <>
                     <div className="form__div">
                         <label className="form__label" htmlFor="specialty">Specialty</label>
-                        <input className="form__input" type="text" name="specialty" id="specialty" onBlur={onChangeDataHandler} />
+                        <input className="form__input" type="text" name="specialty" id="specialty" onChange={onChangeDataHandler} />
                     </div>
                     <div className="form__div">
                         <label className="form__label" htmlFor="experience">Experience</label>
-                        <input className="form__input" type="text" name="experience" id="experience" onBlur={onChangeDataHandler} />
+                        <input className="form__input" type="text" name="experience" id="experience" onChange={onChangeDataHandler} />
                     </div>
                     <div className="form__div">
                         <label className="form__label" htmlFor="education">Education</label>
-                        <input className="form__input" type="text" name="education" id="education" onBlur={onChangeDataHandler} />
+                        <input className="form__input" type="text" name="education" id="education" onChange={onChangeDataHandler} />
                     </div>
                     <div className="form__div">
                         <label className="form__label" htmlFor="workplace">Workplace</label>
-                        <input className="form__input" type="text" name="workplace" id="workplace" onBlur={onChangeDataHandler} />
+                        <input className="form__input" type="text" name="workplace" id="workplace" onChange={onChangeDataHandler} />
                     </div>
                     <div className="form__div">
                         <label className="form__label" htmlFor="workdays">Workdays</label>
-                        <input className="form__input" type="text" name="workdays" id="workdays" onBlur={onChangeDataHandler} />
+                        <input className="form__input" type="text" name="workdays" id="workdays" onChange={onChangeDataHandler} />
                     </div>
                     <div className="form__div">
                         <label className="form__label" htmlFor="workhours">Workhours</label>
-                        <input className="form__input" type="text" name="workhours" id="workhours" onBlur={onChangeDataHandler} />
+                        <input className="form__input" type="text" name="workhours" id="workhours" onChange={onChangeDataHandler} />
                     </div>
                     <div className="form__div">
                         <label className="form__label" htmlFor="price">Price</label>
-                        <input className="form__input" type="number" name="price" id="price" onBlur={onChangeDataHandler} />
+                        <input className="form__input" type="number" name="price" id="price" onChange={onChangeDataHandler} />
                     </div>
 
                     <div className="form__div textarea">
                         <label className="form__label" htmlFor="introDescription">Intro Description - max 20 words</label>
-                        <textarea className="form__input" name="introDescription" id="introDescription"></textarea>
+                        <textarea className="form__input" name="introDescription" id="introDescription" onChange={onChangeDataHandler}></textarea>
                     </div>
 
                     <div className="form__div textarea">
                         <label className="form__label" htmlFor="description">Description</label>
-                        <textarea className="form__input" name="description" id="description"></textarea>
+                        <textarea className="form__input" name="description" id="description" onChange={onChangeDataHandler}></textarea>
                     </div>
                 </>
             ) : null}
