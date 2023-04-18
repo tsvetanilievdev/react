@@ -12,7 +12,7 @@ import Doctors from '../Doctors/Doctors.js';
 import MyProfileUser from './MyProfileUser/MyProfileUser.js';
 
 const Main = () => {
-    const isDoctor = false;
+    const isDoctor = true;
     return (
         <main>
             {!isDoctor && <SearchSection />}
