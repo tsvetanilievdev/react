@@ -14,12 +14,14 @@ import DoctorEdit from './Edit/DoctorEdit.js';
 import UserEdit from './Edit/UserEdit.js';
 import EventEdit from './Edit/EventEdit.js';
 import Logout from './Logout/Logout.js';
+import { useContext } from 'react';
+import AuthContext from '../../context/AuthContext.js';
 
 const Main = () => {
-    const isDoctor = false;
+    const { user } = useContext(AuthContext);
     return (
         <main>
-            {!isDoctor && <SearchSection />}
+            {!user.isDoctor && <SearchSection />}
 
             <Routes>
                 <Route path="/" element={<Home />} />

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../context/AuthContext.js";
 
 const DoctorCard = ({
     imgUrl,
@@ -10,7 +12,7 @@ const DoctorCard = ({
     workdays,
     _id,
 }) => {
-    const isLogged = true;
+    const { user } = useContext(AuthContext);
     return (
         <li className="doctor-list__card">
             <img className='doctor-list__card__img' src={imgUrl} alt="doctor" />
@@ -21,7 +23,7 @@ const DoctorCard = ({
                 <p>Days: {workdays}</p>
             </div>
             <div className="doctor-list__card__actions">
-                {isLogged ? <Link to={'/booking/edit'} className="form__btn light-green">Book</Link> : null}
+                {user.isLogged ? <Link to={'/booking/edit'} className="form__btn light-green">Book</Link> : null}
 
                 <Link to={`/details/${_id}`} className="form__btn blue">View Profile</Link>
             </div>

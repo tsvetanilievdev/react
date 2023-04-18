@@ -25,7 +25,7 @@ const Login = () => {
         if (data.role === 'user') {
             try {
                 const user = await userService.login(data.email, data.password);
-                updateUser({ ...user, isLogged: true });
+                updateUser({ ...user, isLogged: true, isDoctor: false });
 
                 if (user) {
                     navigate('/doctors');
@@ -37,7 +37,7 @@ const Login = () => {
         } else if (data.role === 'doctor') {
             try {
                 const doctor = await doctorService.login(data.email, data.password);
-                console.log('Doctor', doctor);
+                updateUser({ user: { ...doctor }, isLogged: true, isDoctor: true });
 
                 if (doctor) {
                     navigate('/doctors');

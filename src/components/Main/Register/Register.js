@@ -94,9 +94,10 @@ const Register = () => {
             console.log('DOCTOR DATA', doctorData, 'END DOCTOR DATA');
             try {
                 const doctor = await doctorService.register(doctorData);
+                updateUser({ user: { ...doctor }, isLogged: true, isDoctor: true });
 
                 if (doctor) {
-                    navigate('/doctors');
+                    navigate('/profile-doctor');
                 }
             } catch (error) {
                 console.log('Error in register - doctor', error);
