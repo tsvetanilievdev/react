@@ -19,10 +19,17 @@
     border: none;
 }
 
+
 .booking-list.myProfileDoctor {
     width: 65%;
 }
 
+.myProfileDoctor .booking-item.past {
+    background-color: #f16262;
+}
+.myProfileDoctor .booking-item.upcoming {
+    background-color: #00b894;
+}
 .booking-item {
     width: 100%;
     height: 200px;

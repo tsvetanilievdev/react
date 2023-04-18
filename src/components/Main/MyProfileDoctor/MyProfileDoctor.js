@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 const MyProfileDoctor = (props) => {
 
     const isConfirmed = false;
+    const eventStatus = 'UPCOMING';
+
 
     return (
         <section className='section__myProfileDoctor'>
@@ -22,26 +24,32 @@ const MyProfileDoctor = (props) => {
 
                 <ul className="booking-list myProfileDoctor">
                     <li>
-                        <div className="booking-item">
+                        <div className={`booking-item ${eventStatus === 'PAST' ? 'past' : 'upcoming'}`}>
                             <img className='booking-item__info' src={photo} alt="patiant" />
                             <div className="booking-item__info">
                                 <h4>Peter Petrov</h4>
                                 <p>Date: 25-04-2023</p>
                                 <p>Hour: 09:30</p>
                                 <p>Reason: First</p>
+                                <p className='booking-item__info__status'>Status: {eventStatus === 'PAST' ? 'PAST' : 'UPCOMING'}</p>
                             </div>
                             <div className="booking-item__actions">
-                                {!isConfirmed ? (
+
+                                {eventStatus === 'UPCOMING' ? (
                                     <>
-                                        <Link to={'/booking/i3123'} className="form__btn green">Confirm</Link>
-                                        <Link to={'/booking/isaadasd'} className="form__btn red">Cancel</Link>
+                                        {!isConfirmed ? (
+                                            <>
+                                                <Link to={'/booking/i3123'} className="form__btn green">Confirm</Link>
+                                                <Link to={'/booking/isaadasd'} className="form__btn red">Cancel</Link>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Link to={'/booking/edit'} className="form__btn light-green">Edit</Link>
+                                                <Link to={'/booking/delete'} className="form__btn dark-red">Delete</Link>
+                                            </>
+                                        )}
                                     </>
-                                ) : (
-                                    <>
-                                        <Link to={'/booking/edit'} className="form__btn light-green">Edit</Link>
-                                        <Link to={'/booking/delete'} className="form__btn dark-red">Delete</Link>
-                                    </>
-                                )}
+                                ) : null}
 
                             </div>
                         </div>

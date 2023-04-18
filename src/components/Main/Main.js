@@ -9,6 +9,7 @@ import Booking from './Booking/Booking.js';
 import MyProfileDoctor from './MyProfileDoctor/MyProfileDoctor.js';
 import Home from './Home/Home.js';
 import Doctors from '../Doctors/Doctors.js';
+import MyProfileUser from './MyProfileUser/MyProfileUser.js';
 
 const Main = () => {
     const isDoctor = false;
@@ -21,6 +22,7 @@ const Main = () => {
                 <Route path="/search" element={<SearchResultsSection />} />
                 <Route path="/doctors" element={<Doctors />} />
                 <Route path="/profile-doctor" element={<MyProfileDoctor />} />
+                <Route path="/profile-user" element={<MyProfileUser />} />
                 <Route path="/details/:id" element={<Details />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
