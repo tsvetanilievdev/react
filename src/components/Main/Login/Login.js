@@ -3,10 +3,13 @@ import './Login.css'
 import * as userService from '../../../services/userService.js';
 import * as doctorService from '../../../services/doctorService.js';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../../../context/AuthContext.js';
+
 const Login = () => {
+
+    const { user, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [isDoctorSelected, setIsDoctorSelected] = useState(false);
-    const [errors, setErrors] = useState({ hasError: false })
     const [data, setData] = useState({
         role: 'user',
         email: '',
@@ -22,7 +25,7 @@ const Login = () => {
         if (data.role === 'user') {
             try {
                 const user = await userService.login(data.email, data.password);
-                console.log('User', user);
+                updateUser({ ...user, isLogged: true });
 
                 if (user) {
                     navigate('/doctors');
@@ -50,14 +53,7 @@ const Login = () => {
             <h1 className="form__title">Login Form</h1>
             <div className="form__div">
                 <label className="form__label" htmlFor="role">Role</label>
-                <select className="form__input" name="role" id="role" value={data.role} onChange={(e) => {
-                    if (e.target.value === 'doctor') {
-                        setIsDoctorSelected(true);
-                    } else {
-                        setIsDoctorSelected(false);
-                    }
-                    onChangeDataHandler(e);
-                }}>
+                <select className="form__input" name="role" id="role" value={data.role} onChange={e => onChangeDataHandler(e)}>
                     <option value="user">User</option>
                     <option value="doctor">Doctor</option>
                 </select>

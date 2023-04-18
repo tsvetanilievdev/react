@@ -1,13 +1,9 @@
 import { Link } from 'react-router-dom';
 import './Doctors.css';
-import photoFemale from '../Main/doctor-female.png';
-import photoMale from '../Main/doctor.png'
 import { useEffect, useState } from 'react';
 import { getAll } from '../../services/doctorService.js';
 import DoctorCard from './DoctorCard.js';
 
-
-const cache = {};
 const Doctors = () => {
 
     const [doctors, setDoctors] = useState([]);
@@ -23,7 +19,6 @@ const Doctors = () => {
             .catch(err => setIsLoading(true))
     }, [])
 
-    const isLogged = false;
     return (
         <>
             <section className="section__browser">

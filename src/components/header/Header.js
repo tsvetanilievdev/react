@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import './Header.css'
+import { useContext } from 'react';
+import AuthContext from '../../context/AuthContext.js';
 
 const Header = () => {
     const isAdmin = false;
-    const isLogged = true;
+    const { user } = useContext(AuthContext);
     return (
         <header className="header">
             <nav className="nav">
@@ -13,7 +15,7 @@ const Header = () => {
                     <li><Link to="/doctors">Doctors</Link></li>
                     <li><Link to="/contacts">Contact Us</Link></li>
 
-                    {isLogged ? (
+                    {user.isLogged ? (
                         <>
                             <li><Link to="/profile-doctor">Profile Doc</Link></li>
                             <li><Link to="/profile-user">Profile User</Link></li>

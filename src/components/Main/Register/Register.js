@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './Register.css'
 import * as userService from '../../../services/userService.js';
 import * as doctorService from '../../../services/doctorService.js';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../../context/AuthContext.js';
 
 
 const Register = () => {
+    const { user, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [isDoctorSelected, setIsDoctorSelected] = useState(false);
     const [data, setData] = useState({
-        role: '',
+        role: 'user',
         email: '',
         password: '',
         password2: '',
@@ -59,6 +61,7 @@ const Register = () => {
             }
             try {
                 const user = await userService.register(userData);
+                updateUser({ ...user, isLogged: true });
 
                 if (user) {
                     navigate('/doctors');
