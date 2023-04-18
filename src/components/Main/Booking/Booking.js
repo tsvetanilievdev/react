@@ -32,7 +32,7 @@ const Booking = () => {
 
             <div className="form__div" >
                 <label className="form__label" htmlFor="date">Date</label>
-                <input className="form__input" type="date" name="date" id="date" onBlur={onChangeDataHandler} />
+                <input className="form__input" type="date" name="date" id="date" min={new Date().toISOString().split('T')[0]} onBlur={onChangeDataHandler} />
             </div>
 
             <div className="form__div" >
