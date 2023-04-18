@@ -2,8 +2,27 @@ import { Link } from 'react-router-dom';
 import './Doctors.css';
 import photoFemale from '../Main/doctor-female.png';
 import photoMale from '../Main/doctor.png'
+import { useEffect, useState } from 'react';
+import { getAll } from '../../services/doctorService.js';
+import DoctorCard from './DoctorCard.js';
 
+
+const cache = {};
 const Doctors = () => {
+
+    const [doctors, setDoctors] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        getAll()
+            .then(data => {
+                console.log(data);
+                setDoctors(data);
+                setIsLoading(false);
+            })
+            .catch(err => setIsLoading(true))
+    }, [])
+
     const isLogged = false;
     return (
         <>
@@ -32,56 +51,7 @@ const Doctors = () => {
 
                     <ul className="doctor-list">
 
-                        <li className="doctor-list__card">
-                            <img className='doctor-list__card__img' src={photoFemale} alt="doctor" />
-                            <div className="doctor-list__card__info">
-                                <h4>Dr. Peter Petrov</h4>
-                                <p>Date: 25-04-2023</p>
-                                <p>Hour: 09:30</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                            </div>
-                            <div className="doctor-list__card__actions">
-                                {isLogged ? <Link to={'/booking/edit'} className="form__btn light-green">Book</Link> : null}
-
-                                <Link to={'/details/i3123'} className="form__btn blue">View Profile</Link>
-                            </div>
-                        </li>
-
-                        <li className="doctor-list__card">
-                            <img className='doctor-list__card__img' src='/images/doctor-female.png' alt="doctor" />
-                            <div className="doctor-list__card__info">
-                                <h4>Dr. Peter Petrov</h4>
-                                <p>Date: 25-04-2023</p>
-                                <p>Hour: 09:30</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                            </div>
-                            <div className="doctor-list__card__actions">
-                                {isLogged ? <Link to={'/booking/edit'} className="form__btn light-green">Book</Link> : null}
-                                <Link to={'/details/i3123'} className="form__btn blue">View Profile</Link>
-                            </div>
-                        </li>
-                        <li className="doctor-list__card">
-                            <img className='doctor-list__card__img' src={photoMale} alt="doctor" />
-                            <div className="doctor-list__card__info">
-                                <h4>Dr. Peter Petrov</h4>
-                                <p>Date: 25-04-2023</p>
-                                <p>Hour: 09:30</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                                <p>Reason: First</p>
-                            </div>
-                            <div className="doctor-list__card__actions">
-                                {isLogged ? <Link to={'/booking/edit'} className="form__btn light-green">Book</Link> : null}
-                                <Link to={'/details/i3123'} className="form__btn blue">View Profile</Link>
-                            </div>
-                        </li>
+                        {isLoading ? <h1>Loading...</h1> : doctors.map(d => <DoctorCard key={d._id} {...d} />)}
                     </ul>
 
                 </div>
