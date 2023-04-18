@@ -27,7 +27,7 @@ const SearchSection = () => {
                     </label>
 
                 </div>
-                <button className="search__form__btn"><Link to="/search">Search</Link></button>
+                <Link to="/search" className="search__form__btn">Search</Link>
             </form>
         </section>
     )

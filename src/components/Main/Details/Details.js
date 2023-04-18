@@ -5,26 +5,26 @@ const Details = () => {
     const id = useParams().id;
     console.log(id);
     return (
-        <section class="section__details">
-            <div class="section__details__wrapper">
-                <div class="details__info">
-                    <img class="details__info__img" src="./images/doctor.png" alt="doctor" />
-                    <h3 class="details__info__name">Dr. Livandro Ivankov</h3>
-                    <p class="details__info__speciality">Specialty: Cardiologist</p>
-                    <p class="details__info__education">Education: University of Medicine</p>
-                    <p class="details__info__experience">Experience: 10 years</p>
+        <section className="section__details">
+            <div className="section__details__wrapper">
+                <div className="details__info">
+                    <img className="details__info__img" src="./images/doctor.png" alt="doctor" />
+                    <h3 className="details__info__name">Dr. Livandro Ivankov</h3>
+                    <p className="details__info__speciality">Specialty: Cardiologist</p>
+                    <p className="details__info__education">Education: University of Medicine</p>
+                    <p className="details__info__experience">Experience: 10 years</p>
                 </div>
 
-                <div class="details__contacts">
-                    <p class="details__contacts__workplace">Workplace: <span> Clinic 1</span></p>
-                    <p class="details__contacts__workdays">Workdays: <span> Monday - Friday</span></p>
-                    <p class="details__contacts__workhours">Workhours: <span> 8:00 - 16:00</span></p>
-                    <p class="details__contacts__price">Price: <span> 100$</span></p>
-                    <p class="details__contacts__phone">Phone: <span> 032012391209</span></p>
+                <div className="details__contacts">
+                    <p className="details__contacts__workplace">Workplace: <span> Clinic 1</span></p>
+                    <p className="details__contacts__workdays">Workdays: <span> Monday - Friday</span></p>
+                    <p className="details__contacts__workhours">Workhours: <span> 8:00 - 16:00</span></p>
+                    <p className="details__contacts__price">Price: <span> 100$</span></p>
+                    <p className="details__contacts__phone">Phone: <span> 032012391209</span></p>
                 </div>
 
-                <div class="details__description">
-                    <p class="details__description__text">Description: Lorem ipsum dolor sit amet consectetur
+                <div className="details__description">
+                    <p className="details__description__text">Description: Lorem ipsum dolor sit amet consectetur
                         adipisicing
                         elit. Iste molestias consequuntur
                         praesentium assumenda reprehenderit maxime! Dicta nobis hic nesciunt quos, fuga alias laborum
@@ -41,7 +41,7 @@ const Details = () => {
                         iste cum quaerat quidem? </p>
                 </div>
             </div>
-            <Link class="btn details__btn" to={`/book/${id}`}>Book online</Link>
+            <Link className="btn details__btn" to={`/book/${id}`}>Book online</Link>
         </section>
     )
 };

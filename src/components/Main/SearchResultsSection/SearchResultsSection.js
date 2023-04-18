@@ -3,7 +3,7 @@ import './SearchResultsSection.css'
 import photo from './doctor-female.png'
 const SearchResultsSection = () => {
 
-    const isLogged = false;
+    const isLogged = true;
     return (
         <section className="section__results">
             <h3>Search for: "search from form!"</h3>
@@ -30,13 +30,13 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <button className="card__btn">Book now!</button>
+                            <Link to={`/booking`} className="card__btn">Book now!</Link>
                         </>
                     ) : (
-                        <div class="card card-guest">
-                            <div class="info guest">
-                                <h5 class="info__price">For more info please login</h5>
-                                <Link class="card__btn" to="/login">Login</Link>
+                        <div className="card card-guest">
+                            <div className="info guest">
+                                <h5 className="info__price">For more info please login</h5>
+                                <Link className="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -66,13 +66,13 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <button className="card__btn">Book now!</button>
+                            <Link to={`/booking`} className="card__btn">Book now!</Link>
                         </>
                     ) : (
-                        <div class="card card-guest">
-                            <div class="info guest">
-                                <h5 class="info__price">For more info please login</h5>
-                                <Link class="card__btn" to="/login">Login</Link>
+                        <div className="card card-guest">
+                            <div className="info guest">
+                                <h5 className="info__price">For more info please login</h5>
+                                <Link className="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -102,13 +102,13 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <button className="card__btn">Book now!</button>
+                            <Link to={`/booking`} className="card__btn">Book now!</Link>
                         </>
                     ) : (
-                        <div class="card card-guest">
-                            <div class="info guest">
-                                <h5 class="info__price">For more info please login</h5>
-                                <Link class="card__btn" to="/login">Login</Link>
+                        <div className="card card-guest">
+                            <div className="info guest">
+                                <h5 className="info__price">For more info please login</h5>
+                                <Link className="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -138,13 +138,13 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <button className="card__btn">Book now!</button>
+                            <Link to={`/booking`} className="card__btn">Book now!</Link>
                         </>
                     ) : (
-                        <div class="card card-guest">
-                            <div class="info guest">
-                                <h5 class="info__price">For more info please login</h5>
-                                <Link class="card__btn" to="/login">Login</Link>
+                        <div className="card card-guest">
+                            <div className="info guest">
+                                <h5 className="info__price">For more info please login</h5>
+                                <Link className="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -174,13 +174,13 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <button className="card__btn">Book now!</button>
+                            <Link to={`/booking`} on className="card__btn">Book now!</Link>
                         </>
                     ) : (
-                        <div class="card card-guest">
-                            <div class="info guest">
-                                <h5 class="info__price">For more info please login</h5>
-                                <Link class="card__btn" to="/login">Login</Link>
+                        <div className="card card-guest">
+                            <div className="info guest">
+                                <h5 className="info__price">For more info please login</h5>
+                                <Link className="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}
@@ -210,13 +210,13 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <button className="card__btn">Book now!</button>
+                            <Link to={`/booking`} on className="card__btn">Book now!</Link>
                         </>
                     ) : (
-                        <div class="card card-guest">
-                            <div class="info guest">
-                                <h5 class="info__price">For more info please login</h5>
-                                <Link class="card__btn" to="/login">Login</Link>
+                        <div className="card card-guest">
+                            <div className="info guest">
+                                <h5 className="info__price">For more info please login</h5>
+                                <Link className="card__btn" to="/login">Login</Link>
                             </div>
                         </div>
                     )}

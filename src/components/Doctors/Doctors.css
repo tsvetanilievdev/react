@@ -1,0 +1,117 @@
+.browser__wrapper {
+    display:flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.filter__form {
+    width: 150px;
+}
+.form__div__column {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(244, 255, 255);
+    padding: 0.25rem 0.5rem;
+}
+.form__div__column .form__label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.form__div__column .label-inline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.filter__form .form__btn {
+    display: block;
+    padding: 4px 8px;
+    margin: 8px auto;
+    background-color: #13457e;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filter__form .form__btn:hover {
+    background-color: #9cecfa;
+    color: #000;
+}
+
+.doctor-list {
+    width: calc(100% - 150px);
+}
+
+.doctor-list__card {
+    height: 200px;
+    display: flex;
+    background-color: rgb(253, 241, 131);
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.doctor-list__card__img {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+.doctor-list__card__info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+
+
+}
+
+.doctor-list__card__actions {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: flex-end;
+    justify-content: center;
+    margin-left: auto;
+}
+.doctor-list__card__actions .form__btn {
+    padding: 4px 8px;
+    color: #fff;
+    margin: 12px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.doctor-list__card__actions .form__btn.blue {
+    background-color: #11085f;
+    color: #fff;
+}
+.doctor-list__card__actions .form__btn.blue:hover {
+    background-color: #7469ee;
+    color: #fff;
+}
+
+.doctor-list__card__actions .form__btn.light-green {
+    background-color:  #055719;
+    color: #fff;    
+}
+.doctor-list__card__actions .form__btn.light-green:hover {
+    background-color:  #61ec84;
+    color: #fff;    
+}
+.pagination {
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    margin: 0 0.5rem;
+}

@@ -3,7 +3,7 @@ import './Header.css'
 
 const Header = () => {
     const isAdmin = false;
-    const isLogged = false;
+    const isLogged = true;
     return (
         <header className="header">
             <nav className="nav">
@@ -15,7 +15,8 @@ const Header = () => {
 
                     {isLogged ? (
                         <>
-                            <li><Link to="/my-profile">My profile</Link></li>
+                            <li><Link to="/profile-doctor">Profile Doc</Link></li>
+                            <li><Link to="/profile-user">Profile User</Link></li>
                             <li><Link to="/logout">Logout</Link></li>
                             {isAdmin ? (
                                 <li><Link to="/admin">Admin</Link></li>
