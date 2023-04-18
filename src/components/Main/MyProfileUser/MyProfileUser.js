@@ -17,7 +17,7 @@ const MyProfileUser = (props) => {
                     <p className="details__info__age">Age: 33</p>
                     <p className="details__info__City">City: Varna</p>
                     <p className="details__info__phone">Phone: 0888 382812</p>
-                    <Link className='form__btn light-green'>Edit</Link>
+                    <Link to={`/profile-user/edit/jdjsajdajsdjas`} className='form__btn light-green'>Edit</Link>
                 </div>
 
                 <ul className="booking-list myProfileUser">
@@ -33,7 +33,7 @@ const MyProfileUser = (props) => {
                             </div>
                             <div className="booking-item__actions">
                                 {eventStatus === 'UPCOMING' ? (
-                                    <Link to={'/booking/isaadasd'} className="form__btn red">Cancel</Link>
+                                    <Link to={'/booking/isaadasd/edit'} className="form__btn red">Cancel</Link>
                                 ) : null}
                             </div>
                         </div>

@@ -19,7 +19,7 @@ const MyProfileDoctor = (props) => {
                     <p className="details__info__speciality">Specialty: Cardiologist</p>
                     <p className="details__info__education">Education: University of Medicine</p>
                     <p className="details__info__experience">Experience: 10 years</p>
-                    <Link className='form__btn light-green'>Edit</Link>
+                    <Link to={`/profile-doctor/edit/jdjsajdajsdjas`} className='form__btn light-green'>Edit</Link>
                 </div>
 
                 <ul className="booking-list myProfileDoctor">
@@ -44,7 +44,7 @@ const MyProfileDoctor = (props) => {
                                             </>
                                         ) : (
                                             <>
-                                                <Link to={'/booking/edit'} className="form__btn light-green">Edit</Link>
+                                                <Link to={'/booking/djashdjashjdsjh/edit'} className="form__btn light-green">Edit</Link>
                                                 <Link to={'/booking/delete'} className="form__btn dark-red">Delete</Link>
                                             </>
                                         )}

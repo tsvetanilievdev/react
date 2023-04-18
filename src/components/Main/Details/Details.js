@@ -5,7 +5,7 @@ const Details = () => {
     const id = useParams().id;
     console.log(id);
 
-    const isLogged = false;
+    const isLogged = true;
     return (
         <section className="section__details">
             <div className="section__details__wrapper">
@@ -44,7 +44,7 @@ const Details = () => {
                 </div>
             </div>
             {isLogged ? (
-                <Link className="btn details__btn" to={`/book/${id}`}>Book online</Link>) : (
+                <Link className="btn details__btn" to={`/booking/${id}`}>Book online</Link>) : (
                 <Link className="btn details__btn" to="/login">Login to book</Link>
             )}
 

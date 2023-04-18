@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import './Booking.css'
-import { Link } from 'react-router-dom';
-const Booking = () => {
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const EventEdit = () => {
     const [reason, setReason] = useState('first');
     const [data, setData] = useState({
         date: '',
@@ -28,7 +28,7 @@ const Booking = () => {
 
     return (
         <form className="form register__form" onSubmit={onSubmitForm}>
-            <h1 className="form__title">Book hour for Dr. Ivan Ivanov</h1>
+            <h1 className="form__title">Edit booking for Dr. Ivan Ivanov</h1>
 
 
             <div className="form__div" >
@@ -101,10 +101,10 @@ const Booking = () => {
                 <textarea className="form__input" type="text" name="description" id="description" onBlur={onChangeDataHandler} />
             </div>
 
-            <Link to={`/profile-user`} className="form__btn">Book</Link>
+            <Link to={`/profile-doctor`} className="form__btn">Book</Link> {/* only DOCTOR */}
         </form>
 
     )
 }
 
-export default Booking;
+export default EventEdit;

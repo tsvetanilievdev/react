@@ -10,9 +10,12 @@ import MyProfileDoctor from './MyProfileDoctor/MyProfileDoctor.js';
 import Home from './Home/Home.js';
 import Doctors from '../Doctors/Doctors.js';
 import MyProfileUser from './MyProfileUser/MyProfileUser.js';
+import DoctorEdit from './Edit/DoctorEdit.js';
+import UserEdit from './Edit/UserEdit.js';
+import EventEdit from './Edit/EventEdit.js';
 
 const Main = () => {
-    const isDoctor = true;
+    const isDoctor = false;
     return (
         <main>
             {!isDoctor && <SearchSection />}
@@ -22,11 +25,14 @@ const Main = () => {
                 <Route path="/search" element={<SearchResultsSection />} />
                 <Route path="/doctors" element={<Doctors />} />
                 <Route path="/profile-doctor" element={<MyProfileDoctor />} />
+                <Route path="/profile-doctor/edit/:id" element={<DoctorEdit />} />
                 <Route path="/profile-user" element={<MyProfileUser />} />
-                <Route path="/details/:id" element={<Details />} />
+                <Route path="/profile-user/edit/:id" element={<UserEdit />} />
+                <Route path="/details/:id" element={<Details />} /> {/* TO DO.. change path to /doctors/:id */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/booking" element={<Booking />} />
+                <Route path="/booking/:id" element={<Booking />} />
+                <Route path="/booking/:id/edit" element={<EventEdit />} />
             </Routes>
         </main>
     );

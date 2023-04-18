@@ -30,7 +30,7 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <Link to={`/booking`} className="card__btn">Book now!</Link>
+                            <Link to={`/booking/j312kkjkjz`} className="card__btn">Book now!</Link>
                         </>
                     ) : (
                         <div className="card card-guest">
@@ -66,7 +66,7 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <Link to={`/booking`} className="card__btn">Book now!</Link>
+                            <Link to={`/booking/j312kkjkjz`} className="card__btn">Book now!</Link>
                         </>
                     ) : (
                         <div className="card card-guest">
@@ -102,7 +102,7 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <Link to={`/booking`} className="card__btn">Book now!</Link>
+                            <Link to={`/booking/j312kkjkjz`} className="card__btn">Book now!</Link>
                         </>
                     ) : (
                         <div className="card card-guest">
@@ -138,7 +138,7 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <Link to={`/booking`} className="card__btn">Book now!</Link>
+                            <Link to={`/booking/j312kkjkjz`} className="card__btn">Book now!</Link>
                         </>
                     ) : (
                         <div className="card card-guest">
@@ -174,7 +174,7 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <Link to={`/booking`} on className="card__btn">Book now!</Link>
+                            <Link to={`/booking/j312kkjkjz`} on className="card__btn">Book now!</Link>
                         </>
                     ) : (
                         <div className="card card-guest">
@@ -210,7 +210,7 @@ const SearchResultsSection = () => {
                                 <span className="info__workdays">Monday - Friday</span>
                                 <p className="info__workinghours">08:00 - 16:00</p>
                             </div>
-                            <Link to={`/booking`} on className="card__btn">Book now!</Link>
+                            <Link to={`/booking/j312kkjkjz`} on className="card__btn">Book now!</Link>
                         </>
                     ) : (
                         <div className="card card-guest">

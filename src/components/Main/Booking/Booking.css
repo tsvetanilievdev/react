@@ -50,7 +50,7 @@ select.form__input {
     width: 150px;
 }
 
-button.form__btn {
+a.form__btn {
     margin: 8px 0;
     padding: 8px 16px;
     background-color: #b8b849;
@@ -63,7 +63,7 @@ button.form__btn {
     cursor: pointer;
 }
 
-button.form__btn:hover {
+a.form__btn:hover {
     background-color: #fafa9c;
     color: #000;
 }
