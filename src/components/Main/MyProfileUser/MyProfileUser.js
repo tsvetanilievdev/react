@@ -8,7 +8,7 @@ const MyProfileUser = (props) => {
 
     return (
         <section className='section__myProfileUser'>
-            <h3>My Profile</h3>
+            <h3>Patient ==NAME==  Profile</h3>
             <div className="card__myProfileUser">
 
                 <div className="details__info myProfileUser">

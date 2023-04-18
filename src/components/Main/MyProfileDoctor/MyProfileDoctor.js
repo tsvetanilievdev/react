@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 const MyProfileDoctor = (props) => {
 
-    const isConfirmed = false;
+    const isConfirmed = true;
     const eventStatus = 'UPCOMING';
 
 
     return (
         <section className='section__myProfileDoctor'>
-            <h3>My Profile</h3>
+            <h3>Doctor ==NAME== Profile</h3>
             <div className="card__myProfileDoctor">
 
                 <div className="details__info myProfileDoctor">

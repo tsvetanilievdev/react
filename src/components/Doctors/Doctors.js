@@ -4,7 +4,7 @@ import photoFemale from '../Main/doctor-female.png';
 import photoMale from '../Main/doctor.png'
 
 const Doctors = () => {
-    const isLogged = true;
+    const isLogged = false;
     return (
         <>
             <section className="section__browser">

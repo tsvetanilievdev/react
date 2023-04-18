@@ -4,6 +4,8 @@ import './Details.css';
 const Details = () => {
     const id = useParams().id;
     console.log(id);
+
+    const isLogged = false;
     return (
         <section className="section__details">
             <div className="section__details__wrapper">
@@ -41,7 +43,11 @@ const Details = () => {
                         iste cum quaerat quidem? </p>
                 </div>
             </div>
-            <Link className="btn details__btn" to={`/book/${id}`}>Book online</Link>
+            {isLogged ? (
+                <Link className="btn details__btn" to={`/book/${id}`}>Book online</Link>) : (
+                <Link className="btn details__btn" to="/login">Login to book</Link>
+            )}
+
         </section>
     )
 };
