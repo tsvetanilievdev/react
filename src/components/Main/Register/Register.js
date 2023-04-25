@@ -4,6 +4,7 @@ import * as userService from '../../../services/userService.js';
 import * as doctorService from '../../../services/doctorService.js';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../../context/AuthContext.js';
+import { deleteToken, saveToken } from '../../../services/storageService.js';
 
 
 const Register = () => {
@@ -97,9 +98,11 @@ const Register = () => {
                 updateUser({ user: { ...doctor }, isLogged: true, isDoctor: true });
 
                 if (doctor) {
+                    saveToken(doctor)
                     navigate('/profile-doctor');
                 }
             } catch (error) {
+                deleteToken();
                 console.log('Error in register - doctor', error);
             }
         }

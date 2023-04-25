@@ -1,229 +1,30 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './SearchResultsSection.css'
 import photo from './doctor-female.png'
-const SearchResultsSection = () => {
+import { useContext, useEffect, useState } from 'react';
+import AuthContext from '../../../context/AuthContext.js';
+import { getAll } from '../../../services/doctorService.js';
+import SearchCard from './SearchCard.js';
 
-    const isLogged = true;
+
+const SearchResultsSection = () => {
+    const user = useContext(AuthContext);
+    const { location, speciality } = useParams()
+    const [searchedDoctors, setSearchedDoctors] = useState([]);
+    console.log(location, speciality);
+    useEffect(() => {
+        getAll(location, speciality)
+            .then(data => {
+                setSearchedDoctors(data);
+            })
+    }, [])
+
+
     return (
         <section className="section__results">
             <h3>Search for: "search from form!"</h3>
 
-            <div className="doctor__card">
-
-                <div className="card card-info">
-                    <img src={photo} alt="" />
-                    <div className="info">
-                        <h3 className="info__name">Ivana Ivanova</h3>
-                        <p className="info__graduate">Medical University - Dental Medicine</p>
-                        <h4 className="info__spec">Dentist</h4>
-                        <p className="info__city">Varna, Bulgara</p>
-                    </div>
-                </div>
-
-                <div className="card card-book">
-
-                    {isLogged ? (
-                        <>
-                            <div className="info">
-                                <h5 className="info__price">300 - 1000 $</h5>
-                                <p className="info__location">Medical Center Varna City</p>
-                                <span className="info__workdays">Monday - Friday</span>
-                                <p className="info__workinghours">08:00 - 16:00</p>
-                            </div>
-                            <Link to={`/booking/j312kkjkjz`} className="card__btn">Book now!</Link>
-                        </>
-                    ) : (
-                        <div className="card card-guest">
-                            <div className="info guest">
-                                <h5 className="info__price">For more info please login</h5>
-                                <Link className="card__btn" to="/login">Login</Link>
-                            </div>
-                        </div>
-                    )}
-
-                </div>
-            </div>
-
-            <div className="doctor__card">
-
-                <div className="card card-info">
-                    <img src={photo} alt="" />
-                    <div className="info">
-                        <h3 className="info__name">Ivana Ivanova</h3>
-                        <p className="info__graduate">Medical University - Dental Medicine</p>
-                        <h4 className="info__spec">Dentist</h4>
-                        <p className="info__city">Varna, Bulgara</p>
-                    </div>
-                </div>
-
-                <div className="card card-book">
-
-                    {isLogged ? (
-                        <>
-                            <div className="info">
-                                <h5 className="info__price">300 - 1000 $</h5>
-                                <p className="info__location">Medical Center Varna City</p>
-                                <span className="info__workdays">Monday - Friday</span>
-                                <p className="info__workinghours">08:00 - 16:00</p>
-                            </div>
-                            <Link to={`/booking/j312kkjkjz`} className="card__btn">Book now!</Link>
-                        </>
-                    ) : (
-                        <div className="card card-guest">
-                            <div className="info guest">
-                                <h5 className="info__price">For more info please login</h5>
-                                <Link className="card__btn" to="/login">Login</Link>
-                            </div>
-                        </div>
-                    )}
-
-                </div>
-            </div>
-
-            <div className="doctor__card">
-
-                <div className="card card-info">
-                    <img src={photo} alt="" />
-                    <div className="info">
-                        <h3 className="info__name">Ivana Ivanova</h3>
-                        <p className="info__graduate">Medical University - Dental Medicine</p>
-                        <h4 className="info__spec">Dentist</h4>
-                        <p className="info__city">Varna, Bulgara</p>
-                    </div>
-                </div>
-
-                <div className="card card-book">
-
-                    {isLogged ? (
-                        <>
-                            <div className="info">
-                                <h5 className="info__price">300 - 1000 $</h5>
-                                <p className="info__location">Medical Center Varna City</p>
-                                <span className="info__workdays">Monday - Friday</span>
-                                <p className="info__workinghours">08:00 - 16:00</p>
-                            </div>
-                            <Link to={`/booking/j312kkjkjz`} className="card__btn">Book now!</Link>
-                        </>
-                    ) : (
-                        <div className="card card-guest">
-                            <div className="info guest">
-                                <h5 className="info__price">For more info please login</h5>
-                                <Link className="card__btn" to="/login">Login</Link>
-                            </div>
-                        </div>
-                    )}
-
-                </div>
-            </div>
-
-            <div className="doctor__card">
-
-                <div className="card card-info">
-                    <img src={photo} alt="" />
-                    <div className="info">
-                        <h3 className="info__name">Ivana Ivanova</h3>
-                        <p className="info__graduate">Medical University - Dental Medicine</p>
-                        <h4 className="info__spec">Dentist</h4>
-                        <p className="info__city">Varna, Bulgara</p>
-                    </div>
-                </div>
-
-                <div className="card card-book">
-
-                    {isLogged ? (
-                        <>
-                            <div className="info">
-                                <h5 className="info__price">300 - 1000 $</h5>
-                                <p className="info__location">Medical Center Varna City</p>
-                                <span className="info__workdays">Monday - Friday</span>
-                                <p className="info__workinghours">08:00 - 16:00</p>
-                            </div>
-                            <Link to={`/booking/j312kkjkjz`} className="card__btn">Book now!</Link>
-                        </>
-                    ) : (
-                        <div className="card card-guest">
-                            <div className="info guest">
-                                <h5 className="info__price">For more info please login</h5>
-                                <Link className="card__btn" to="/login">Login</Link>
-                            </div>
-                        </div>
-                    )}
-
-                </div>
-            </div>
-
-            <div className="doctor__card">
-
-                <div className="card card-info">
-                    <img src={photo} alt="" />
-                    <div className="info">
-                        <h3 className="info__name">Ivana Ivanova</h3>
-                        <p className="info__graduate">Medical University - Dental Medicine</p>
-                        <h4 className="info__spec">Dentist</h4>
-                        <p className="info__city">Varna, Bulgara</p>
-                    </div>
-                </div>
-
-                <div className="card card-book">
-
-                    {isLogged ? (
-                        <>
-                            <div className="info">
-                                <h5 className="info__price">300 - 1000 $</h5>
-                                <p className="info__location">Medical Center Varna City</p>
-                                <span className="info__workdays">Monday - Friday</span>
-                                <p className="info__workinghours">08:00 - 16:00</p>
-                            </div>
-                            <Link to={`/booking/j312kkjkjz`} on className="card__btn">Book now!</Link>
-                        </>
-                    ) : (
-                        <div className="card card-guest">
-                            <div className="info guest">
-                                <h5 className="info__price">For more info please login</h5>
-                                <Link className="card__btn" to="/login">Login</Link>
-                            </div>
-                        </div>
-                    )}
-
-                </div>
-            </div>
-
-            <div className="doctor__card">
-
-                <div className="card card-info">
-                    <img src={photo} alt="" />
-                    <div className="info">
-                        <h3 className="info__name">Ivana Ivanova</h3>
-                        <p className="info__graduate">Medical University - Dental Medicine</p>
-                        <h4 className="info__spec">Dentist</h4>
-                        <p className="info__city">Varna, Bulgara</p>
-                    </div>
-                </div>
-
-                <div className="card card-book">
-
-                    {isLogged ? (
-                        <>
-                            <div className="info">
-                                <h5 className="info__price">300 - 1000 $</h5>
-                                <p className="info__location">Medical Center Varna City</p>
-                                <span className="info__workdays">Monday - Friday</span>
-                                <p className="info__workinghours">08:00 - 16:00</p>
-                            </div>
-                            <Link to={`/booking/j312kkjkjz`} on className="card__btn">Book now!</Link>
-                        </>
-                    ) : (
-                        <div className="card card-guest">
-                            <div className="info guest">
-                                <h5 className="info__price">For more info please login</h5>
-                                <Link className="card__btn" to="/login">Login</Link>
-                            </div>
-                        </div>
-                    )}
-
-                </div>
-            </div>
-
+            {searchedDoctors.map((doctor) => <SearchCard key={doctor._id} {...doctor} user={user} />)}
 
         </section>
     );

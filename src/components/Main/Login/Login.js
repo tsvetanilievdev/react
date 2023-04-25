@@ -5,6 +5,7 @@ import * as doctorService from '../../../services/doctorService.js';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from '../../../context/AuthContext.js';
+import { deleteToken, saveToken } from '../../../services/storageService.js';
 
 const Login = () => {
 
@@ -40,9 +41,11 @@ const Login = () => {
                 updateUser({ user: { ...doctor }, isLogged: true, isDoctor: true });
 
                 if (doctor) {
+                    saveToken(doctor);
                     navigate('/doctors');
                 }
             } catch (error) {
+                deleteToken();
                 console.log('Error in login - doctor', error);
             }
         }

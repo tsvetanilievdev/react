@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { Navigate } from "react-router-dom"
 import { logout } from "../../../services/userService.js";
 import AuthContext from "../../../context/AuthContext.js";
+import { deleteToken } from "../../../services/storageService.js";
 
 const Logout = () => {
     const { user, updateUser } = useContext(AuthContext);
@@ -11,6 +12,7 @@ const Logout = () => {
         logout().then(m => {
             console.log(m);
             updateUser({ isLogged: false });
+            deleteToken();
             setIsLoggedOut(true);
         }).catch(e => {
             console.log(e);

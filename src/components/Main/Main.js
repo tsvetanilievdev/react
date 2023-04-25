@@ -25,7 +25,7 @@ const Main = () => {
 
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/search" element={<SearchResultsSection />} />
+                <Route path="/search/:location/:speciality" element={<SearchResultsSection />} />
                 <Route path="/doctors" element={<Doctors />} />
                 <Route path="/profile-doctor" element={<MyProfileDoctor />} />
                 <Route path="/profile-doctor/edit/:id" element={<DoctorEdit />} />

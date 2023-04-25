@@ -52,3 +52,12 @@ export async function getAll() {
         throw new Error('Get all doctors error!', error.message);
     }
 }
+export async function getOne(id) {
+    try {
+        const response = await fetch('http://localhost:4405/doctors/' + id);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        throw new Error('Get one doctor error!', error.message);
+    }
+}

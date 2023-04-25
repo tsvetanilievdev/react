@@ -1,14 +1,18 @@
 import { createContext, useState } from "react";
+import { getToken } from "../services/storageService.js";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    const token = getToken();
     const [user, setUser] = useState({
-        isLogged: false,
+        isLogged: token.isAuthenticated,
         isDoctor: false,
-        email: '',
-        name: '',
+        email: token.email || '',
+        name: token.name || '',
     })
+
+
 
     const updateUser = (data) => setUser(data);
     return (

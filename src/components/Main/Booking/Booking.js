@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Booking.css'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { getOne } from '../../../services/doctorService.js';
 const Booking = () => {
+    const { id } = useParams();
+    const [doctor, setDoctor] = useState({});
     const [reason, setReason] = useState('first');
     const [data, setData] = useState({
         date: '',
@@ -11,7 +14,14 @@ const Booking = () => {
         description: '',
     });
 
-    console.log(data.reason)
+    useEffect(() => {
+        getOne(id).
+            then(data => {
+                console.log(data);
+                setDoctor(data);
+            })
+            .catch(err => console.log(err))
+    }, [])
     const onChangeDataHandler = (e) => {
         if (e.target.name === 'reason') {
             console.log("Reason", e.target.value)
@@ -22,13 +32,11 @@ const Booking = () => {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-
-        console.log('booking', data)
     }
 
     return (
         <form className="form register__form" onSubmit={onSubmitForm}>
-            <h1 className="form__title">Book hour for Dr. Ivan Ivanov</h1>
+            <h1 className="form__title">Book hour for Dr. {data.firstName} {data.lastName}</h1>
 
 
             <div className="form__div" >
