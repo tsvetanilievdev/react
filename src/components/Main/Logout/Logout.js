@@ -5,7 +5,8 @@ import AuthContext from "../../../context/AuthContext.js";
 import { deleteToken } from "../../../services/storageService.js";
 
 const Logout = () => {
-    const { user, updateProfile } = useContext(AuthContext);
+    // eslint-disable-next-line no-unused-vars
+    const { profile, updateProfile } = useContext(AuthContext);
     const [isLoggedOut, setIsLoggedOut] = useState(false);
 
     useEffect(() => {
@@ -18,7 +19,7 @@ const Logout = () => {
             console.log(e);
             setIsLoggedOut(false);
         })
-    }, [])
+    }, [updateProfile])
 
     return (
         isLoggedOut ? <Navigate to="/login" /> : <h1>Logging out...</h1>

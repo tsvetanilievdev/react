@@ -8,7 +8,7 @@ import AuthContext from '../../../context/AuthContext.js';
 import { deleteToken, saveToken } from '../../../services/storageService.js';
 
 const Login = () => {
-
+    // eslint-disable-next-line no-unused-vars
     const { profile, updateProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [data, setData] = useState({

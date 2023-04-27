@@ -8,6 +8,7 @@ import { deleteToken, saveToken } from '../../../services/storageService.js';
 
 
 const Register = () => {
+    // eslint-disable-next-line no-unused-vars
     const { profile, updateProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [isDoctorSelected, setIsDoctorSelected] = useState(false);
