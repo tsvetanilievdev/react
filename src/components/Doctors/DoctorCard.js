@@ -6,6 +6,7 @@ const DoctorCard = ({
     imgUrl,
     firstName,
     lastName,
+    city,
     specialty,
     introDescription,
     workingHours,
@@ -19,8 +20,10 @@ const DoctorCard = ({
             <div className="doctor-list__card__info">
                 <h4>Dr. {firstName} {lastName}</h4>
                 <p>{specialty}</p>
+                <p>{introDescription}</p>
                 <p>Hours: {workingHours}</p>
                 <p>Days: {workdays}</p>
+                <p>City: {city}</p>
             </div>
             <div className="doctor-list__card__actions">
                 {profile.isLogged ? <Link to={`/booking/${_id}`} className="form__btn light-green">Book</Link> : null}
