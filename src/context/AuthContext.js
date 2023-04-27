@@ -5,7 +5,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const token = getToken();
-    const [user, setUser] = useState({
+    const [profile, setProfile] = useState({
         isLogged: token.isAuthenticated,
         isDoctor: false,
         email: token.email || '',
@@ -14,9 +14,9 @@ export const AuthProvider = ({ children }) => {
 
 
 
-    const updateUser = (data) => setUser(data);
+    const updateProfile = (data) => setProfile(data);
     return (
-        <AuthContext.Provider value={{ user, updateUser }}>
+        <AuthContext.Provider value={{ profile, updateProfile }}>
             {children}
         </AuthContext.Provider>
     );

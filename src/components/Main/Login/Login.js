@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Login.css'
-import * as userService from '../../../services/userService.js';
+import * as patientsService from '../../../services/patientsService.js';
 import * as doctorService from '../../../services/doctorService.js';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -9,10 +9,10 @@ import { deleteToken, saveToken } from '../../../services/storageService.js';
 
 const Login = () => {
 
-    const { user, updateUser } = useContext(AuthContext);
+    const { profile, updateProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [data, setData] = useState({
-        role: 'user',
+        role: 'patient',
         email: '',
         password: '',
     });
@@ -23,22 +23,23 @@ const Login = () => {
     }
     const onSubmitHandler = async (e) => {
         e.preventDefault();
-        if (data.role === 'user') {
+        console.log(data.role);
+        if (data.role === 'patient') {
             try {
-                const user = await userService.login(data.email, data.password);
-                updateUser({ ...user, isLogged: true, isDoctor: false });
+                const patient = await patientsService.login(data.email, data.password);
+                updateProfile({ ...patient, isLogged: true, isDoctor: false });
 
-                if (user) {
+                if (patient) {
                     navigate('/doctors');
                 }
             } catch (error) {
-                console.log('Error in login - user', error);
+                console.log('Error in login - patient', error);
             }
 
         } else if (data.role === 'doctor') {
             try {
                 const doctor = await doctorService.login(data.email, data.password);
-                updateUser({ user: { ...doctor }, isLogged: true, isDoctor: true });
+                updateProfile({ profile: { ...doctor }, isLogged: true, isDoctor: true });
 
                 if (doctor) {
                     saveToken(doctor);
@@ -57,7 +58,7 @@ const Login = () => {
             <div className="form__div">
                 <label className="form__label" htmlFor="role">Role</label>
                 <select className="form__input" name="role" id="role" value={data.role} onChange={e => onChangeDataHandler(e)}>
-                    <option value="user">User</option>
+                    <option value="patient">Patient</option>
                     <option value="doctor">Doctor</option>
                 </select>
             </div>

@@ -1,6 +1,6 @@
 export async function login(email, password) {
     try {
-        const response = await fetch('http://localhost:4405/users/login', {
+        const response = await fetch('http://localhost:4405/patients/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: {
@@ -16,7 +16,7 @@ export async function login(email, password) {
 
 export async function register(userData) {
     try {
-        const response = await fetch('http://localhost:4405/users/register', {
+        const response = await fetch('http://localhost:4405/patients/register', {
             method: 'POST',
             body: JSON.stringify(userData),
             headers: {
@@ -33,7 +33,7 @@ export async function register(userData) {
 
 export async function logout() {
     try {
-        const response = await fetch('http://localhost:4405/users/logout');
+        const response = await fetch('http://localhost:4405/patients/logout');
 
         if (response.status === 204) {
             return response.json();

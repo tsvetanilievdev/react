@@ -12,7 +12,7 @@ const DoctorCard = ({
     workdays,
     _id,
 }) => {
-    const { user } = useContext(AuthContext);
+    const { profile } = useContext(AuthContext);
     return (
         <li className="doctor-list__card">
             <img className='doctor-list__card__img' src={imgUrl} alt="doctor" />
@@ -23,7 +23,7 @@ const DoctorCard = ({
                 <p>Days: {workdays}</p>
             </div>
             <div className="doctor-list__card__actions">
-                {user.isLogged ? <Link to={`/booking/${_id}`} className="form__btn light-green">Book</Link> : null}
+                {profile.isLogged ? <Link to={`/booking/${_id}`} className="form__btn light-green">Book</Link> : null}
 
                 <Link to={`/details/${_id}`} className="form__btn blue">View Profile</Link>
             </div>

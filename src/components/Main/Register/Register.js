@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import './Register.css'
-import * as userService from '../../../services/userService.js';
+import * as patientsService from '../../../services/patientsService.js';
 import * as doctorService from '../../../services/doctorService.js';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../../context/AuthContext.js';
@@ -8,11 +8,11 @@ import { deleteToken, saveToken } from '../../../services/storageService.js';
 
 
 const Register = () => {
-    const { user, updateUser } = useContext(AuthContext);
+    const { profile, updateProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [isDoctorSelected, setIsDoctorSelected] = useState(false);
     const [data, setData] = useState({
-        role: 'user',
+        role: 'patient',
         email: '',
         password: '',
         password2: '',
@@ -48,8 +48,8 @@ const Register = () => {
     const onSubmitForm = async (e) => {
         e.preventDefault();
         console.log('ROLEEEEEEEEEEEEEEEEEEEEE', data.role);
-        if (data.role === 'user') {
-            const userData = {
+        if (data.role === 'patient') {
+            const patientData = {
                 email: data.email,
                 password: data.password,
                 firstName: data.firstName,
@@ -61,14 +61,14 @@ const Register = () => {
                 imgUrl: data.imgUrl,
             }
             try {
-                const user = await userService.register(userData);
-                updateUser({ ...user, isLogged: true });
+                const patient = await patientsService.register(patientData);
+                updateProfile({ ...patient, isLogged: true });
 
-                if (user) {
+                if (patient) {
                     navigate('/doctors');
                 }
             } catch (error) {
-                console.log('Error in register - user', error);
+                console.log('Error in register - patient', error);
             }
 
         } else if (data.role === 'doctor') {
@@ -95,7 +95,7 @@ const Register = () => {
             console.log('DOCTOR DATA', doctorData, 'END DOCTOR DATA');
             try {
                 const doctor = await doctorService.register(doctorData);
-                updateUser({ user: { ...doctor }, isLogged: true, isDoctor: true });
+                updateProfile({ patient: { ...doctor }, isLogged: true, isDoctor: true });
 
                 if (doctor) {
                     saveToken(doctor)
@@ -122,7 +122,7 @@ const Register = () => {
                     }
                     onChangeDataHandler(e);
                 }}>
-                    <option value="user">User</option>
+                    <option value="patient">Patient</option>
                     <option value="doctor">Doctor</option>
                 </select>
             </div>

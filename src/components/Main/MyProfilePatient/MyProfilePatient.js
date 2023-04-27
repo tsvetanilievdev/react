@@ -1,4 +1,4 @@
-import './MyProfileUser.css';
+import './MyProfilePatient.css';
 import photo from '../doctor.png'
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const MyProfileUser = (props) => {
                     <p className="details__info__age">Age: 33</p>
                     <p className="details__info__City">City: Varna</p>
                     <p className="details__info__phone">Phone: 0888 382812</p>
-                    <Link to={`/profile-user/edit/jdjsajdajsdjas`} className='form__btn light-green'>Edit</Link>
+                    <Link to={`/profile-patient/edit/jdjsajdajsdjas`} className='form__btn light-green'>Edit</Link>
                 </div>
 
                 <ul className="booking-list myProfileUser">

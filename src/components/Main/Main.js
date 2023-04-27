@@ -9,7 +9,7 @@ import Booking from './Booking/Booking.js';
 import MyProfileDoctor from './MyProfileDoctor/MyProfileDoctor.js';
 import Home from './Home/Home.js';
 import Doctors from '../Doctors/Doctors.js';
-import MyProfileUser from './MyProfileUser/MyProfileUser.js';
+import MyProfilePatient from './MyProfilePatient/MyProfilePatient.js';
 import DoctorEdit from './Edit/DoctorEdit.js';
 import UserEdit from './Edit/UserEdit.js';
 import EventEdit from './Edit/EventEdit.js';
@@ -18,10 +18,10 @@ import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext.js';
 
 const Main = () => {
-    const { user } = useContext(AuthContext);
+    const { profile } = useContext(AuthContext);
     return (
         <main>
-            {!user.isDoctor && <SearchSection />}
+            {!profile.isDoctor && <SearchSection />}
 
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -29,8 +29,8 @@ const Main = () => {
                 <Route path="/doctors" element={<Doctors />} />
                 <Route path="/profile-doctor" element={<MyProfileDoctor />} />
                 <Route path="/profile-doctor/edit/:id" element={<DoctorEdit />} />
-                <Route path="/profile-user" element={<MyProfileUser />} />
-                <Route path="/profile-user/edit/:id" element={<UserEdit />} />
+                <Route path="/profile-patient" element={<MyProfilePatient />} />
+                <Route path="/profile-patient/edit/:id" element={<UserEdit />} />
                 <Route path="/details/:id" element={<Details />} /> {/* TO DO.. change path to /doctors/:id */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />
