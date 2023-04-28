@@ -26,7 +26,7 @@ const DoctorCard = ({
                 <p>City: {city}</p>
             </div>
             <div className="doctor-list__card__actions">
-                {profile.isLogged ? <Link to={`/booking/${_id}`} className="form__btn light-green">Book</Link> : null}
+                {profile.isLogged ? <Link to={`/booking/${_id}`} className="form__btn light-green">Book</Link> : false}
 
                 <Link to={`/details/${_id}`} className="form__btn blue">View Profile</Link>
             </div>

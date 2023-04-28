@@ -1,19 +1,37 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
 import './SearchSection.css'
+import { useNavigate } from 'react-router-dom';
+import SearchContext from '../../../context/SearchContext.js';
 
 const SearchSection = () => {
     const navigate = useNavigate();
-    return (
+    const { searchData, updateSearch } = useContext(SearchContext);
 
+    const onInputChange = (e) => {
+        updateSearch((state) => ({
+            ...state,
+            [e.target.name]: e.target.value
+        }));
+    };
+    return (
         <section className="section__search">
             <form className="search__form" onSubmit={(e) => {
                 e.preventDefault();
-                const formData = new FormData(e.target);
-                const data = {
-                    location: formData.get('location') || 'all',
-                    speciality: formData.get('speciality') || 'all',
+                const { location, speciality } = Object.fromEntries(new FormData(e.target));
+                updateSearch((state) => ({
+                    ...state,
+                    location,
+                    speciality
+                }));
+                let url = `/search`;
+                if (searchData.location !== '' && searchData.speciality !== '') {
+                    url += `?location=${searchData.location}&speciality=${searchData.speciality}`;
+                } else if (searchData.location !== '') {
+                    url += `?location=${searchData.location}`;
+                } else if (searchData.speciality !== '') {
+                    url += `?speciality=${searchData.speciality}`;
                 }
-                navigate(`/search/${data.location}/${data.speciality}`)
+                navigate(url);
             }}>
                 <h3 className="search__form__title">Search Doctor, Make an Appointment</h3>
                 <h4 className="search__form__subtitle">Discover the best doctors, clinic & hospital the city nearest to you.

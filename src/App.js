@@ -5,13 +5,16 @@ import Header from './Components/Header/Header.js';
 import Main from './Components/Main/Main.js';
 
 import { AuthProvider } from './context/AuthContext.js';
+import { SearchProvider } from './context/SearchContext.js';
 
 function App() {
 
   return (
     <AuthProvider>
       <Header />
-      <Main />
+      <SearchProvider>
+        <Main />
+      </SearchProvider>
       <Footer />
     </AuthProvider>
   );

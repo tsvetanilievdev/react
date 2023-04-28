@@ -43,9 +43,18 @@ export async function logout() {
     }
 }
 
-export async function getAll() {
+export async function getAll(location, speciality) {
+    let url = 'http://localhost:4405/doctors';
+    if (location !== '' && speciality !== '') {
+        url += `?location=${location}&speciality=${speciality}`;
+    } else if (location !== '') {
+        url += `?location=${location}`;
+    } else if (speciality !== '') {
+        url += `?speciality=${speciality}`;
+    }
+
     try {
-        const response = await fetch('http://localhost:4405/doctors');
+        const response = await fetch(url);
         const data = await response.json();
         return data;
     } catch (error) {

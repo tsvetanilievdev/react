@@ -3,16 +3,31 @@ import './Doctors.css';
 import { useEffect, useState } from 'react';
 import { getAll } from '../../services/doctorService.js';
 import DoctorCard from './DoctorCard.js';
+import DoctorFilterForm from './DoctorFilterForm.js';
 
 const Doctors = () => {
 
+    const [filter, setFilter] = useState({
+        hasFilter: false,
+        specialities: {
+            psychologic: false,
+            cardiologic: false,
+            dermatologic: false,
+            gynecologic: false,
+            neurologic: false,
+            oncologic: false,
+            ophthalmologic: false,
+            orthopedic: false,
+            pediatric: false,
+            urologic: false,
+        },
+    });
     const [doctors, setDoctors] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getAll()
             .then(data => {
-                console.log(data);
                 setDoctors(data);
                 setIsLoading(false);
             })
@@ -22,33 +37,11 @@ const Doctors = () => {
     return (
         <>
             <section className="section__browser">
-
                 <div className="browser__wrapper">
-
-                    <form className="filter__form">
-                        <div className="form__div__column">
-                            <label className="form__label" for="filter">Filter By: </label>
-                            <label className='label-inline'>All<input name="all" type="checkbox" value="all" /></label>
-                            <label className='label-inline'>Psychologic<input name="psychologic" type="checkbox" value="psychologic" /></label>
-                            <label className='label-inline'>Cardiologic<input name="cardiologic" type="checkbox" value="cardiologic" /></label>
-                            <label className='label-inline'>Dermatologic<input name="dermatologic" type="checkbox"
-                                value="dermatologic" /></label>
-                            <label className='label-inline'>Gynecologic<input name="gynecologic" type="checkbox" value="gynecologic" /></label>
-                            <label className='label-inline'>Neurologic<input name="neurologic" type="checkbox" value="neurologic" /></label>
-                            <label className='label-inline'>Oncologic<input name="oncologic" type="checkbox" value="oncologic" /></label>
-                            <label className='label-inline'>Ophthalmologic<input name="ophthalmologic" type="checkbox"
-                                value="ophthalmologic" /></label>
-                            <label className='label-inline'>Pediatric<input name="pediatric" type="checkbox" value="pediatric" /></label>
-                            <label className='label-inline'>Urologic<input name="urologic" type="checkbox" value="urologic" /></label>
-                        </div>
-                        <input className="form__btn" type="submit" value="Search" />
-                    </form>
-
+                    <DoctorFilterForm filter={filter} updateFilter={setFilter} />
                     <ul className="doctor-list">
-
                         {isLoading ? <h1>Loading...</h1> : doctors.map(d => <DoctorCard key={d._id} {...d} />)}
                     </ul>
-
                 </div>
 
                 <div className="pagination">

@@ -2,7 +2,7 @@ import './Main.css';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Login/Login.js';
 import Register from './Register/Register.js';
-import SearchResultsSection from './SearchResultsSection/SearchResultsSection.js';
+import SearchResultsSection from './SearchSection/SearchResultsSection/SearchResultsSection.js';
 import SearchSection from './SearchSection/SearchSection.js';
 import Details from './Details/Details.js';
 import Booking from './Booking/Booking.js';
@@ -25,7 +25,7 @@ const Main = () => {
 
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/search/:location/:speciality" element={<SearchResultsSection />} />
+                <Route path="/search" element={<SearchResultsSection />} />
                 <Route path="/doctors" element={<Doctors />} />
                 <Route path="/profile-doctor" element={<MyProfileDoctor />} />
                 <Route path="/profile-doctor/edit/:id" element={<DoctorEdit />} />
