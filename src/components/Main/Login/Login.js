@@ -40,7 +40,7 @@ const Login = () => {
         } else if (data.role === 'doctor') {
             try {
                 const doctor = await doctorService.login(data.email, data.password);
-                updateProfile({ profile: { ...doctor }, isLogged: true, isDoctor: true });
+                updateProfile({ ...doctor, isLogged: true, isDoctor: true });
 
                 if (doctor) {
                     saveToken(doctor);

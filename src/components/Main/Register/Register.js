@@ -97,7 +97,7 @@ const Register = () => {
             console.log('DOCTOR DATA', doctorData, 'END DOCTOR DATA');
             try {
                 const doctor = await doctorService.register(doctorData);
-                updateProfile({ patient: { ...doctor }, isLogged: true, isDoctor: true });
+                updateProfile({ ...doctor, isLogged: true, isDoctor: true });
 
                 if (doctor) {
                     saveToken(doctor)

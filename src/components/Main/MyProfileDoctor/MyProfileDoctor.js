@@ -1,25 +1,28 @@
 import './MyProfileDoctor.css';
 import photo from '../doctor.png'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../../../context/AuthContext.js';
 
 const MyProfileDoctor = (props) => {
-
+    const { profile } = useContext(AuthContext);
+    console.log(profile.education)
     const isConfirmed = true;
     const eventStatus = 'UPCOMING';
 
 
     return (
         <section className='section__myProfileDoctor'>
-            <h3>Doctor ==NAME== Profile</h3>
+            <h3>Doctor Profile - {profile.name}</h3>
             <div className="card__myProfileDoctor">
 
                 <div className="details__info myProfileDoctor">
-                    <img className="details__info__img" src={photo} alt="doctor" />
-                    <h3 className="details__info__name">Dr. Livandro Ivankov</h3>
-                    <p className="details__info__speciality">Specialty: Cardiologist</p>
-                    <p className="details__info__education">Education: University of Medicine</p>
-                    <p className="details__info__experience">Experience: 10 years</p>
-                    <Link to={`/profile-doctor/edit/jdjsajdajsdjas`} className='form__btn light-green'>Edit</Link>
+                    <img className="details__info__img" src={profile.imgUrl} alt="doctor" />
+                    <h3 className="details__info__name">Dr. {profile.name}</h3>
+                    <p className="details__info__speciality">Specialty: {profile.speciality}</p>
+                    <p className="details__info__education">Education: {profile.education}</p>
+                    <p className="details__info__experience">Experience: {profile.experience}</p>
+                    <Link to={`/profile-doctor/edit/${profile.id}`} className='form__btn light-green'>Edit</Link>
                 </div>
 
                 <ul className="booking-list myProfileDoctor">
