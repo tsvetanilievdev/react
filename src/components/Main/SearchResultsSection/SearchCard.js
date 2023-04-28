@@ -7,7 +7,7 @@ const SearchCard = ({
     education,
     speciality,
     city,
-    user,
+    profile,
     _id
 }) => {
 
@@ -26,7 +26,7 @@ const SearchCard = ({
 
             <div className="card card-book">
 
-                {user.user.isLogged ? (
+                {profile.profile.isLogged ? (
                     <>
                         <div className="info">
                             <h5 className="info__price">300 - 1000 $</h5>

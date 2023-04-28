@@ -66,6 +66,7 @@ const Register = () => {
                 updateProfile({ ...patient, isLogged: true });
 
                 if (patient) {
+                    saveToken(patient);
                     navigate('/doctors');
                 }
             } catch (error) {

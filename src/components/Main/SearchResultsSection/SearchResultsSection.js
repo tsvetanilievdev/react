@@ -8,7 +8,7 @@ import SearchCard from './SearchCard.js';
 
 
 const SearchResultsSection = () => {
-    const user = useContext(AuthContext);
+    const profile = useContext(AuthContext);
     const { location, speciality } = useParams()
     const [searchedDoctors, setSearchedDoctors] = useState([]);
     console.log(location, speciality);
@@ -24,7 +24,7 @@ const SearchResultsSection = () => {
         <section className="section__results">
             <h3>Search for: "search from form!"</h3>
 
-            {searchedDoctors.map((doctor) => <SearchCard key={doctor._id} {...doctor} user={user} />)}
+            {searchedDoctors.map((doctor) => <SearchCard key={doctor._id} {...doctor} profile={profile} />)}
 
         </section>
     );

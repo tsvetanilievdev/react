@@ -6,7 +6,7 @@ import { getOne } from '../../../services/doctorService.js';
 
 const Details = () => {
     const id = useParams().id;
-    const { user } = useContext(AuthContext);
+    const { profile } = useContext(AuthContext);
     const [doctor, setDoctor] = useState({});
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const Details = () => {
                     <p className="details__description__text">Description: {doctor.description} </p>
                 </div>
             </div>
-            {user.isLogged ? (
+            {profile.isLogged ? (
                 <Link className="btn details__btn" to={`/booking/${id}`}>Book online</Link>) : (
                 <Link className="btn details__btn" to="/login">Login to book</Link>
             )}

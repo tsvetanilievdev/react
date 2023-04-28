@@ -30,6 +30,7 @@ const Login = () => {
                 updateProfile({ ...patient, isLogged: true, isDoctor: false });
 
                 if (patient) {
+                    saveToken(patient)
                     navigate('/doctors');
                 }
             } catch (error) {

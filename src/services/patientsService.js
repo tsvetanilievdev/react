@@ -14,11 +14,11 @@ export async function login(email, password) {
     }
 }
 
-export async function register(userData) {
+export async function register(patientData) {
     try {
         const response = await fetch('http://localhost:4405/patients/register', {
             method: 'POST',
-            body: JSON.stringify(userData),
+            body: JSON.stringify(patientData),
             headers: {
                 'Content-Type': 'application/json'
             }

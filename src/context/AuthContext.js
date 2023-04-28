@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const token = getToken();
+    console.log(token);
     const [profile, setProfile] = useState({
         isLogged: token.isAuthenticated,
         isDoctor: false,

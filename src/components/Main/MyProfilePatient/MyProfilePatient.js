@@ -1,22 +1,23 @@
 import './MyProfilePatient.css';
 import photo from '../doctor.png'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../../../context/AuthContext.js';
 
 const MyProfileUser = (props) => {
-
+    const { profile } = useContext(AuthContext)
     const eventStatus = 'PAST';
 
     return (
         <section className='section__myProfileUser'>
-            <h3>Patient ==NAME==  Profile</h3>
+            <h3>Patient Profile - {profile.name}</h3>
             <div className="card__myProfileUser">
 
                 <div className="details__info myProfileUser">
-                    <img className="details__info__img" src={photo} alt="doctor" />
-                    <h3 className="details__info__name">Edandro Ivankov</h3>
-                    <p className="details__info__age">Age: 33</p>
-                    <p className="details__info__City">City: Varna</p>
-                    <p className="details__info__phone">Phone: 0888 382812</p>
+                    <img className="details__info__img" src={profile.imgUrl} alt="doctor" />
+                    <h3 className="details__info__name">{profile.name}</h3>
+                    <p className="details__info__age">Age: {profile.age}</p>
+                    <p className="details__info__City">City: {profile.city}</p>
                     <Link to={`/profile-patient/edit/jdjsajdajsdjas`} className='form__btn light-green'>Edit</Link>
                 </div>
 
